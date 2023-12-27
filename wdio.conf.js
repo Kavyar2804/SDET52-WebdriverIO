@@ -301,33 +301,32 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function(exitCode, config, capabilities, results) {
-        // Create an Error object to be used in case of report generation failure
-        const reportError = new Error('Could not generate Allure report')
-    // Run the Allure command-line tool to generate the report from the results
-     const generation = allure(['generate', 'allure-results', '--clean',])
-    // Return a Promise to handle asynchronous operations
-     return new Promise((resolve, reject) => {
-    // Set a timeout to reject the Promise if report generation takes too long (5 seconds)
-            const generationTimeout = setTimeout(
-                () => reject(reportError),
-                5000)
-                // Listen for the 'exit' event of the Allure process
-            generation.on('exit', function(exitCode) {
-                // Clear the timeout since the generation has completed
-            clearTimeout(generationTimeout)
-                   // Check the exit code of the Allure process
-            if (exitCode !== 0) {
-            // If the exit code is not 0 (success), reject the Promise with the reportError
-                    return reject(reportError)
-                }
-            // If the exit code is 0, log success and resolve the Promise   
-                console.log('Allure report successfully generated')
-                resolve()
-            })
-        })
-
-    },
+    // onComplete: function(exitCode, config, capabilities, results) {
+    //     // Create an Error object to be used in case of report generation failure
+    //     const reportError = new Error('Could not generate Allure report')
+    // // Run the Allure command-line tool to generate the report from the results
+    //  const generation = allure(['generate', 'allure-results', '--clean',])
+    // // Return a Promise to handle asynchronous operations
+    //  return new Promise((resolve, reject) => {
+    // // Set a timeout to reject the Promise if report generation takes too long (5 seconds)
+    //         const generationTimeout = setTimeout(
+    //             () => reject(reportError),
+    //             5000)
+    //             // Listen for the 'exit' event of the Allure process
+    //         generation.on('exit', function(exitCode) {
+    //             // Clear the timeout since the generation has completed
+    //         clearTimeout(generationTimeout)
+    //                // Check the exit code of the Allure process
+    //         if (exitCode !== 0) {
+    //         // If the exit code is not 0 (success), reject the Promise with the reportError
+    //                 return reject(reportError)
+    //             }
+    //         // If the exit code is 0, log success and resolve the Promise   
+    //             console.log('Allure report successfully generated')
+    //             resolve()
+    //         })
+    //     })
+    // },
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
