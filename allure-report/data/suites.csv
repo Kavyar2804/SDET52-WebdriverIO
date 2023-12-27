@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Dec 26 16:07:18 IST 2023","Tue Dec 26 16:07:28 IST 2023","9751","","fetchdata","","","","datafromjson",""
+"failed","Tue Dec 26 15:42:46 IST 2023","Tue Dec 26 15:43:12 IST 2023","26617","","Example of a script","","","","Launch a browser",""
+"failed","Tue Dec 26 16:07:08 IST 2023","Tue Dec 26 16:07:37 IST 2023","29856","","Example of a script","","","","Launch a browser",""
+"failed","Tue Dec 26 15:42:47 IST 2023","Tue Dec 26 15:43:12 IST 2023","25176","","Example of a script","","","","Launch a browser",""
